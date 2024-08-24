@@ -1,8 +1,7 @@
 import logo from '../../assets/Pokémon_logo.svg';
 import { BsFilterCircle } from "react-icons/bs";
-import FilterModal from '../FilterModal/FilterModal';
 
-const Navbar = ({search, setSearch, handleFilterModalClick, isModalOpen}) => {
+const Navbar = ({search, setSearch, handleFilterModalClick}) => {
 
 
   return (
