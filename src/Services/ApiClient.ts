@@ -28,20 +28,20 @@ const getPokemonTypes = async () => {
   }
 };
 
-const getPokemonGames = async () => {
-  try {
-    const gamesData = (await axios.get(baseURL + '/generation')).data.results;
-    const gamesList = await Promise.all(
-      gamesData.map(async (e) => {
-        const game = (await axios.get(e.url)).data.version_groups[0].name;
-        return game;
-      })
-    );
-    console.log(gamesList);
-    return gamesList;
-  } catch (error) {
-    console.error('Failed to get Pokemon games: ', error);
-  }
-};
+// const getPokemonGames = async () => {
+//   try {
+//     const gamesData = (await axios.get(baseURL + '/generation')).data.results;
+//     const gamesList = await Promise.all(
+//       gamesData.map(async (e) => {
+//         const game = (await axios.get(e.url)).data.version_groups[0].name;
+//         return game;
+//       })
+//     );
+//     console.log('gamesList', gamesList);
+//     return gamesList;
+//   } catch (error) {
+//     console.error('Failed to get Pokemon games: ', error);
+//   }
+// };
 
 export { getPokemonList, getPokemonTypes };
