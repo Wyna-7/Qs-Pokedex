@@ -3,7 +3,7 @@ const baseURL = 'https://pokeapi.co/api/v2';
 
 const getPokemonList = async () => {
   try {
-    const pokeData = (await axios.get(baseURL + '/pokemon/?limit=100')).data.results;
+    const pokeData = (await axios.get(baseURL + '/pokemon/?limit=700&offset=0')).data.results;
     const pokeList = await Promise.all(
       pokeData.map(async (e) => {
         const poke = (await axios.get(e.url)).data;
@@ -28,20 +28,16 @@ const getPokemonTypes = async () => {
   }
 };
 
-// const getPokemonGames = async () => {
-//   try {
-//     const gamesData = (await axios.get(baseURL + '/generation')).data.results;
-//     const gamesList = await Promise.all(
-//       gamesData.map(async (e) => {
-//         const game = (await axios.get(e.url)).data.version_groups[0].name;
-//         return game;
-//       })
-//     );
-//     console.log('gamesList', gamesList);
-//     return gamesList;
-//   } catch (error) {
-//     console.error('Failed to get Pokemon games: ', error);
-//   }
-// };
+const getPokemonGames = async () => {
+  try {
+    const gamesData = (await axios.get(baseURL + '/version?limit=34&offset=0')).data.results;
+    const gamesList = gamesData.map((element) => {
+      return element.name;
+    });
+    return gamesList;
+  } catch (error) {
+    console.error('Failed to get Pokemon games: ', error);
+  }
+};
 
-export { getPokemonList, getPokemonTypes };
+export { getPokemonList, getPokemonTypes, getPokemonGames };
