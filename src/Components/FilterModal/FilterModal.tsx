@@ -5,14 +5,10 @@ const FilterModal = ({ closeModal, selectedFilters, setSelectedFilters }) => {
   const [formData, setFormData] = useState({
     types: [],
     games: [],
-    // regions: [],
-    // generations: [],
   });
   const [filters, setFilters] = useState({
     types: [],
     games: [],
-    // regions: [],
-    // generations: [],
   });
 
   useEffect(() => {
@@ -22,7 +18,6 @@ const FilterModal = ({ closeModal, selectedFilters, setSelectedFilters }) => {
     getPokemonGames().then((res) => {
       setFormData((prevFormData) => ({ ...prevFormData, games: res }));
     });
-
     setFilters(selectedFilters);
   }, []);
 
@@ -53,7 +48,7 @@ const FilterModal = ({ closeModal, selectedFilters, setSelectedFilters }) => {
   };
 
   return (
-    <div className='filter-modal size-full'>
+    <div className='filter-modal flex fixed z-100 w-[100vw] h-[100vh]'>
       <div className='overlay size-full absolute top-0 bg-[rgba(49,49,49,0.8)]' onClick={closeModal}></div>
       <div className='form-wrapper'>
         <form className='form absolute top-1/4 left-1/4 bg-slate-50 rounded p-5 w-1/2 h-1/2' onSubmit={handleSubmit}>
