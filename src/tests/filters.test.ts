@@ -1,17 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import Home from '../pages/Home';
+import { describe, it, expect } from 'vitest';
 import { Filters, Pokemon } from '../types';
 import { filterPokemon } from '../utils/HelperFnc';
-
-describe('Home page', () => {
-  describe('when page is loading', () => {
-    it('should display loading screen', () => {
-      render(<Home />);
-      expect(screen.getByTestId('loading-screen')).toBeDefined();
-    });
-  });
-});
 
 describe('filterPokemon helper function', () => {
   const allPokemon: Pokemon[] = [

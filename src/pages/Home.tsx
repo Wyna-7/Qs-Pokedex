@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+//@ts-expect-error React is not used but import needed for test
+import React, { useEffect, useState } from 'react';
 import useOnMountUnsafe from '../hooks/useOnMountUnsafe';
 import Navbar from '../components/Navbar';
 import PokeList from '../components/PokeList';

@@ -1,3 +1,5 @@
+//@ts-expect-error React is not used but import needed for test
+import React from 'react';
 import loadingPikachu from '../assets/pixel-art-rolling.gif';
 
 const Loading = () => {
