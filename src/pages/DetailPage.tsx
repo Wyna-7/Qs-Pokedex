@@ -7,7 +7,7 @@ const DetailPage = () => {
   const pokemon: Pokemon = state;
   const { name, abilities, stats, types, image } = pokemon;
 
-  const colors = {
+  const colors: Record<string, string> = {
     normal: 'bg-[#A8A77A]',
     fire: 'bg-[#EE8130]',
     water: 'bg-[#6390F0]',
@@ -27,8 +27,6 @@ const DetailPage = () => {
     steel: 'bg-[#B7B7CE]',
     fairy: 'bg-[#D685AD]',
   };
-
-  //const tailwindPickup = ['bg-[#7AC74C]'];
 
   return (
     <div className='pokemon-detail size-full   mb-28 px-2 lg:px-60 pt-5 bg-white overflow-y-auto'>
