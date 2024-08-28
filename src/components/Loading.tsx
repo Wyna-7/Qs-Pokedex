@@ -1,4 +1,3 @@
-import React from 'react';
 import loadingPikachu from '../assets/pixel-art-rolling.gif';
 
 const Loading = () => {

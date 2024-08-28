@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import useOnMountUnsafe from '../hooks/useOnMountUnsafe';
 import Navbar from '../components/Navbar';
 import PokeList from '../components/PokeList';

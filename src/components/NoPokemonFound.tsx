@@ -1,4 +1,3 @@
-import React from 'react';
 import pikachu from '../assets/pikachu-intro.png';
 
 const NoPokemonFound = () => {

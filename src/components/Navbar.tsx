@@ -1,4 +1,3 @@
-import React from 'react';
 import logo from '../assets/Pokémon_logo.svg';
 import { BsFilterCircle } from 'react-icons/bs';
 import { NavBarProps } from '../types';
