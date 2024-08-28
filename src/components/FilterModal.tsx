@@ -52,12 +52,12 @@ const FilterModal = ({ closeModal, selectedFilters, setSelectedFilters }: Filter
     <div className='filter-modal flex fixed z-100 w-[100vw] h-[100vh]'>
       <div className='overlay fixed bg-[rgba(49,49,49,0.8)] flex z-100 w-[100vw] h-[100vh]' onClick={closeModal}></div>
       <form
-        className='form absolute top-1/4 bottom-[10%] left-1/4 flex flex-col justify-between bg-slate-50 rounded p-12 w-1/2 overflow-auto'
+        className='form absolute top-1/4 bottom-[10%] md:left-1/4 left-[15%] flex flex-col justify-between bg-slate-50 rounded p-12 w-3/4 md:w-1/2 overflow-auto'
         onSubmit={handleSubmit}
       >
         <div>
           <h2 className='types-legend font-bold mb-1'>Choose one or more types:</h2>
-          <div className='types-wrapper flex flex-col sm:flex-row sm:flex-wrap justify-start'>
+          <div className='types-wrapper flex flex-row flex-wrap justify-start'>
             {formData.types.map((type) => (
               <div className='flex m-2' key={type}>
                 <input
@@ -76,7 +76,7 @@ const FilterModal = ({ closeModal, selectedFilters, setSelectedFilters }: Filter
           </div>
 
           <h2 className='games-legend font-bold mt-4 mb-1'>Choose one or more games:</h2>
-          <div className='games-wrapper flex flex-col sm:flex-row sm:flex-wrap justify-start'>
+          <div className='games-wrapper flex flex-row flex-wrap justify-start'>
             {formData.games.map((game) => (
               <div className='flex m-2' key={game}>
                 <input
