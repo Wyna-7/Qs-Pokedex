@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from '../assets/Pokémon_logo.svg';
 import { BsFilterCircle } from 'react-icons/bs';
 import { NavBarProps } from '../types';
@@ -13,12 +14,14 @@ const Navbar = ({ search, setSearch, handleFilterModalClick }: NavBarProps) => {
         <input
           className='input h-[50%] w-[700%] p-1 pl-2 border-none rounded-md outline-none'
           type='text'
+          aria-label='Search Pokémon'
           placeholder='Search Pokémon'
           value={search}
           onChange={(event) => setSearch(event.target.value)}
         />
         <button
           className='filter-icon text-3xl cursor-pointer bg-gray-800 text-white border-none m-1'
+          aria-label='Filter Pokémon'
           onClick={handleFilterModalClick}
         >
           <BsFilterCircle />

@@ -55,5 +55,4 @@ const DetailPage = () => {
   );
 };
 
-//poke.sprites.other.home.front-default
 export default DetailPage;

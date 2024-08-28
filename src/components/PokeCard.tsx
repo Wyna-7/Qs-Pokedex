@@ -1,3 +1,4 @@
+import React from 'react';
 import { Pokemon } from '../types';
 
 const PokeCard = ({ id, name, gif_front, gif_back }: Partial<Pokemon>) => {

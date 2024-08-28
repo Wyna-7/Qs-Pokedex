@@ -47,7 +47,7 @@ const getPokemonTypes = async (): Promise<string[] | undefined> => {
 
 const getPokemonGames = async (): Promise<string[] | undefined> => {
   try {
-    const gamesData = (await axios.get(baseURL + '/version?limit=34&offset=0')).data.results;
+    const gamesData = (await axios.get(baseURL + '/version?limit=22&offset=0')).data.results;
     const gamesList = gamesData.map((element: { name: string }) => {
       return element.name;
     });
