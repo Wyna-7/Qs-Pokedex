@@ -50,11 +50,14 @@ const FilterModal = ({ closeModal, selectedFilters, setSelectedFilters }: Filter
 
   return (
     <div className='filter-modal flex fixed z-100 w-[100vw] h-[100vh]'>
-      <div className='overlay size-full absolute top-0 bg-[rgba(49,49,49,0.8)]' onClick={closeModal}></div>
-      <div className='form-wrapper'>
-        <form className='form absolute top-1/4 left-1/4 bg-slate-50 rounded p-5 w-1/2' onSubmit={handleSubmit}>
+      <div className='overlay fixed bg-[rgba(49,49,49,0.8)] flex z-100 w-[100vw] h-[100vh]' onClick={closeModal}></div>
+      <form
+        className='form absolute top-1/4 bottom-[10%] left-1/4 flex flex-col justify-between bg-slate-50 rounded p-12 w-1/2 overflow-auto'
+        onSubmit={handleSubmit}
+      >
+        <div>
           <h2 className='types-legend font-bold mb-1'>Choose one or more types:</h2>
-          <div className='types-wrapper flex flex-row flex-wrap justify-start'>
+          <div className='types-wrapper flex flex-col sm:flex-row sm:flex-wrap justify-start'>
             {formData.types.map((type) => (
               <div className='flex m-2' key={type}>
                 <input
@@ -73,7 +76,7 @@ const FilterModal = ({ closeModal, selectedFilters, setSelectedFilters }: Filter
           </div>
 
           <h2 className='games-legend font-bold mt-4 mb-1'>Choose one or more games:</h2>
-          <div className='games-wrapper flex flex-row flex-wrap justify-start'>
+          <div className='games-wrapper flex flex-col sm:flex-row sm:flex-wrap justify-start'>
             {formData.games.map((game) => (
               <div className='flex m-2' key={game}>
                 <input
@@ -90,17 +93,17 @@ const FilterModal = ({ closeModal, selectedFilters, setSelectedFilters }: Filter
               </div>
             ))}
           </div>
+        </div>
 
-          <div className='button-wrapper w-full flex content-center justify-center mt-5'>
-            <button
-              type='submit'
-              className='submit focus:outline-none text-white bg-gray-800 hover:bg-gray-700 focus:ring-2 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-gray-400'
-            >
-              Apply filters
-            </button>
-          </div>
-        </form>
-      </div>
+        <div className='button-wrapper w-full flex content-center justify-center mt-5'>
+          <button
+            type='submit'
+            className='submit focus:outline-none text-white bg-gray-800 hover:bg-gray-700 focus:ring-2 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-gray-400'
+          >
+            Apply filters
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

@@ -6,8 +6,7 @@ const getPokemonList = async (): Promise<Pokemon[] | undefined> => {
   try {
     const pokeData = (await axios.get(baseURL + '/pokemon/?limit=700&offset=0')).data.results;
     const pokeList: Pokemon[] = await Promise.all(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      pokeData.map(async (e: any) => {
+      pokeData.map(async (e: { url: string }) => {
         const poke = (await axios.get(e.url)).data;
         return {
           id: poke.id,
@@ -15,20 +14,16 @@ const getPokemonList = async (): Promise<Pokemon[] | undefined> => {
           image: `${poke.sprites.other.home.front_default}`,
           gif_front: `${poke.sprites.other.showdown.front_default}`,
           gif_back: `${poke.sprites.other.showdown.back_default}`,
-          types: poke.types.map((type: { slot: number; type: { name: string; url: string } }) => {
+          types: poke.types.map((type: { type: { name: string } }) => {
             return type.type.name;
           }),
-          abilities: poke.abilities.map(
-            (ability: { ability: { name: string; url: string }; is_hidden: boolean; slot: number }) => {
-              return ability.ability.name;
-            }
-          ),
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          stats: poke.stats.map((stat: any) => {
+          abilities: poke.abilities.map((ability: { ability: { name: string } }) => {
+            return ability.ability.name;
+          }),
+          stats: poke.stats.map((stat: { stat: { name: string }; base_stat: number }) => {
             return { name: stat.stat.name, value: stat.base_stat };
           }),
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          game_indices: poke.game_indices.map((index: any) => index.version.name),
+          game_indices: poke.game_indices.map((index: { version: { name: string } }) => index.version.name),
         };
       })
     );
@@ -41,8 +36,7 @@ const getPokemonList = async (): Promise<Pokemon[] | undefined> => {
 const getPokemonTypes = async (): Promise<string[] | undefined> => {
   try {
     const typesData = (await axios.get(baseURL + '/type/?limit=18')).data.results;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const typesList = typesData.map((type: any) => {
+    const typesList = typesData.map((type: { name: string }) => {
       return type.name;
     });
     return typesList;
@@ -54,8 +48,7 @@ const getPokemonTypes = async (): Promise<string[] | undefined> => {
 const getPokemonGames = async (): Promise<string[] | undefined> => {
   try {
     const gamesData = (await axios.get(baseURL + '/version?limit=34&offset=0')).data.results;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const gamesList = gamesData.map((element: any) => {
+    const gamesList = gamesData.map((element: { name: string }) => {
       return element.name;
     });
     return gamesList;

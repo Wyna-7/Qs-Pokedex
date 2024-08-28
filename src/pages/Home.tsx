@@ -58,14 +58,14 @@ const Home = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  if (loading) {
+  if (loading && !displayPokemon.length) {
     return <Loading />;
   }
 
   return (
     <div className='main-container flex flex-row align-middle m-0 p-0 size-full bg-slate-50 overflow-y-scroll'>
       <Navbar setSearch={setSearch} search={search} handleFilterModalClick={handleFilterModalClick} />
-      <PokeList pokemon={displayPokemon} loading={loading} />
+      <PokeList pokemon={displayPokemon} />
       {isModalOpen && (
         <FilterModal
           closeModal={handleFilterModalClick}
