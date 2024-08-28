@@ -4,13 +4,13 @@
 
 Para poder usar la repo localmente:
 
-1. Crear un fork de la repo desde GitHub y, utilizando la clave HTTPS o SSH ejecutar el siguiente comando en la terminal:
+1. Crear un fork o clon de la repo desde GitHub y, utilizando la clave HTTPS o SSH ejecutar el siguiente comando en la terminal:
 
 ```
 git clone HTTPS/SSH
 ```
 
-2. Una vez se haya creado el proyecto, abrirlo usando un IDE e instalar paquetes:
+2. Una vez se haya creado el proyecto, abrirlo e instalar paquetes:
 
 ```
 npm install
@@ -22,7 +22,7 @@ npm install
 npm run dev
 ```
 
-Para ejecutar los tests desde la IDE:
+Para ejecutar los tests:
 
 ```
 npm run test
