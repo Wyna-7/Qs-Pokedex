@@ -1,4 +1,4 @@
-# Qs-Pokedex
+# Qs Pokédex
 
 ## Cómo funciona
 
@@ -22,7 +22,7 @@ npm install
 npm run dev
 ```
 
-Para ejectura los tests desde la IDE:
+Para ejecutar los tests desde la IDE:
 
 ```
 npm run test
